@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS public.products CASCADE;
+-- DROP TABLE IF EXISTS public.products CASCADE;
 -- DROP TABLE IF EXISTS public.reviews CASCADE;
 
 
@@ -9,8 +9,8 @@ CREATE TABLE
 			name VARCHAR(255) NOT NULL,
 			description VARCHAR(255) NOT NULL,
 			brand VARCHAR (50) NOT NULL,
-            image_url VARCHAR NOT NULL,
-            price INTEGER NOT NULL,
+            image_url text NOT NULL,
+            price numeric NOT NULL,
             category VARCHAR (50) NOT NULL,
 			created_at TIMESTAMPTZ DEFAULT NOW(),
 			updated_at TIMESTAMPTZ DEFAULT NOW()
