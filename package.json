@@ -1,24 +1,16 @@
 {
-  "name": "D2",
+  "name": "rest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
-    "dev":"nodemon -r dotenv/config src/server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tomas-collab/M6-D2.git"
+    "dev": "nodemon -r dotenv/config src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tomas-collab/M6-D2/issues"
-  },
-  "homepage": "https://github.com/tomas-collab/M6-D2#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

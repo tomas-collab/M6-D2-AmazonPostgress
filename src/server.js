@@ -1,7 +1,20 @@
 import express from 'express'
+import cors from 'cors'
+import services from './services/index.js'
+import createDefaultTables from './scripts/create-table.js'
+const app = express()
 
-const route = express()
-
+app.use(express.json())
+app.use(cors())
+ 
 const {PORT} = process.env
-route.listen(PORT,()=>console.log(`server is running on port ${PORT}`)) 
-route.on('error',(error)=>console.log(`server failed :${error}`)) 
+app.use('/',services)
+
+
+
+app.listen(PORT, async()=>{
+    await createDefaultTables()
+    console.log(`server is runnig on port ${PORT}`)
+})
+app.on('error',(error)=>console.log(`server failed: ${error}`))
+
