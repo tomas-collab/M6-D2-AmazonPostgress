@@ -15,8 +15,8 @@ export const single = async(req,res,next)=>{
     try {
         const {product_id} = req.params
         const product = await db.query(`SELECT * FROM products WHERE product_id=${product_id}`)
-        const [found, ...rest] = product.row
-        res.status(found?200:400).send(found)
+        const [found, ...rest] = product.rows
+        res.status(found?200:404).send(found)
     } catch (error) {
         res.status(500).send(error)
     }
@@ -33,16 +33,28 @@ export const create = async (req,res,next)=>{
 }
 
 export const update = async(req,res,next)=>{
-    try { 
+    try {
         const {product_id} = req.params
-        const {name,description,brand,image_url,price,category}=req.body
-        const products = await db.query(`UPDATE products SET name='${name}',decription='${description}',brand='${brand}',image_url='${image_url}',price='${price}',category='${category}'`)
-        const [found, ...rest] = products.rows
+        const{name,description,brand,image_url,price,category} = req.body
+        const product = await db.query(`UPDATE products SET name='${name}',description='${description}',brand='${brand}',image_url='${image_url}',price='${price}',category='${category}',updated_at=NOW() WHERE product_id=${product_id} RETURNING *`)
+        const [found, ...rest] = product.rows
         res.status(found?200:400).send(found)
     } catch (error) {
         res.status(500).send(error)
     }
 }
+
+// export const updateImage = async(req,res,next)=>{
+//     try {
+//         const {product_id} = req.params
+//         const{image_url} = req.path.file
+//         const product = await db.query(`UPDATE products SET image_url='${image_url}', updated_at=NOW() WHERE product_id=${product_id} RETURNING *`)
+//         res.send(product.rows)
+//     } catch (error) {
+//         res.status(500).send(error)
+//     }
+// }
+
 
 export const deleteProduct = async(req,res,next)=>{
     try {
