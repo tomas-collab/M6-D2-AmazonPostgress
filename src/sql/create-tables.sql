@@ -1,5 +1,5 @@
--- DROP TABLE IF EXISTS public.products CASCADE;
--- DROP TABLE IF EXISTS public.reviews CASCADE;
+DROP TABLE IF EXISTS public.products CASCADE;
+DROP TABLE IF EXISTS public.reviews CASCADE;
 
 
 CREATE TABLE 
