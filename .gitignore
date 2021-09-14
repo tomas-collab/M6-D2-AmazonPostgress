@@ -7,3 +7,5 @@ node_modules/
 # PGDATABASE=d6fg1me16t1oq0
 # PGPASSWORD=79aab29408011d290f382504fb38e620cb9e1ca11d9e75a8a69beb044360561d
 # PGPORT=5432
+src/.DS_Store
+.DS_Store
